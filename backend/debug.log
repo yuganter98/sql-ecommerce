@@ -1,0 +1,21 @@
+Auth Error: jwt malformed
+Auth Success: {"id":"9fcd7d65-d976-4d87-a51d-2b06f777e9d0","email":"test@example.com","iat":1763898702,"exp":1763902302}
+
+----------------------------------------
+Time: 2025-11-23T11:52:00.056Z
+req.user: {
+  "id": "9fcd7d65-d976-4d87-a51d-2b06f777e9d0",
+  "email": "test@example.com",
+  "iat": 1763898702,
+  "exp": 1763902302
+}
+req.body: {
+  "first_name": "Test",
+  "last_name": "User",
+  "email": "test@example.com",
+  "phone_number": "",
+  "address": "Success St",
+  "city": "",
+  "country": ""
+}
+----------------------------------------

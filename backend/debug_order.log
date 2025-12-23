@@ -1,0 +1,376 @@
+[2025-11-23T15:42:19.283Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "1",
+      "quantity": 1,
+      "price": 299.99
+    },
+    {
+      "product_id": "2",
+      "quantity": 1,
+      "price": 149.5
+    },
+    {
+      "product_id": "3",
+      "quantity": 1,
+      "price": 199
+    }
+  ],
+  "total_amount": 648.49,
+  "shipping_address": "wall street , stokes, UK",
+  "payment_method": "COD"
+}
+[2025-11-23T15:43:39.699Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "203f4ec6-9134-492a-8850-344387b1d9ea",
+      "quantity": 1,
+      "price": 299.99
+    },
+    {
+      "product_id": "56f24d8e-b0d5-4201-9318-2a8ae034eeb9",
+      "quantity": 1,
+      "price": 399.99
+    },
+    {
+      "product_id": "fc6d00cb-787b-42ee-9993-86c6dff1b230",
+      "quantity": 1,
+      "price": 899.99
+    }
+  ],
+  "total_amount": 1599.97,
+  "shipping_address": "wall street",
+  "payment_method": "COD"
+}
+[2025-11-23T15:44:14.888Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "1",
+      "quantity": 1,
+      "price": 299.99
+    },
+    {
+      "product_id": "2",
+      "quantity": 1,
+      "price": 149.5
+    },
+    {
+      "product_id": "4",
+      "quantity": 1,
+      "price": 89.95
+    }
+  ],
+  "total_amount": 539.44,
+  "shipping_address": "wall street , london, UK",
+  "payment_method": "CARD"
+}
+[2025-11-23T15:44:20.607Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "1",
+      "quantity": 1,
+      "price": 299.99
+    },
+    {
+      "product_id": "2",
+      "quantity": 1,
+      "price": 149.5
+    },
+    {
+      "product_id": "4",
+      "quantity": 1,
+      "price": 89.95
+    }
+  ],
+  "total_amount": 539.44,
+  "shipping_address": "wall street , london, UK,1",
+  "payment_method": "CARD"
+}
+[2025-11-23T15:44:23.199Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "1",
+      "quantity": 1,
+      "price": 299.99
+    },
+    {
+      "product_id": "2",
+      "quantity": 1,
+      "price": 149.5
+    },
+    {
+      "product_id": "4",
+      "quantity": 1,
+      "price": 89.95
+    }
+  ],
+  "total_amount": 539.44,
+  "shipping_address": "wall street , london, UK,1",
+  "payment_method": "COD"
+}
+[2025-11-23T15:51:57.141Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "fc6d00cb-787b-42ee-9993-86c6dff1b230",
+      "quantity": 1,
+      "price": 899.99
+    },
+    {
+      "product_id": "56f24d8e-b0d5-4201-9318-2a8ae034eeb9",
+      "quantity": 1,
+      "price": 399.99
+    },
+    {
+      "product_id": "203f4ec6-9134-492a-8850-344387b1d9ea",
+      "quantity": 1,
+      "price": 299.99
+    }
+  ],
+  "total_amount": 1599.97,
+  "shipping_address": "wall street , stokes, UK123 Test St",
+  "payment_method": "CARD"
+}
+[2025-11-24T11:51:29.568Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "203f4ec6-9134-492a-8850-344387b1d9ea",
+      "quantity": 1
+    },
+    {
+      "product_id": "56f24d8e-b0d5-4201-9318-2a8ae034eeb9",
+      "quantity": 1
+    },
+    {
+      "product_id": "1",
+      "quantity": 1
+    }
+  ],
+  "shipping_address": "wall street",
+  "payment_method": "COD"
+}
+[2025-11-24T12:03:36.041Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "203f4ec6-9134-492a-8850-344387b1d9ea",
+      "quantity": 2
+    }
+  ],
+  "shipping_address": "123 Test St",
+  "payment_method": "COD"
+}
+[2025-11-24T13:00:53.433Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "afb7e20c-372c-4821-9e9c-cd88660e0e58",
+      "quantity": 1
+    },
+    {
+      "product_id": "67146f3d-c285-4ab9-b8ed-bfbf35b30a77",
+      "quantity": 1
+    },
+    {
+      "product_id": "3e1d2b57-2359-4c6c-81d7-2c86ce6d22b5",
+      "quantity": 1
+    }
+  ],
+  "shipping_address": "wall street , stokes, UK",
+  "payment_method": "COD"
+}
+[2025-11-24T13:01:01.319Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "fc6d00cb-787b-42ee-9993-86c6dff1b230",
+      "quantity": 1
+    },
+    {
+      "product_id": "56f24d8e-b0d5-4201-9318-2a8ae034eeb9",
+      "quantity": 1
+    },
+    {
+      "product_id": "e50b44c7-11ed-43a3-bdd2-f0ba7ecf7707",
+      "quantity": 1
+    }
+  ],
+  "shipping_address": "wall street , stokes, UK",
+  "payment_method": "COD"
+}
+[2025-11-26T08:02:44.672Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "c01ee5d1-2c49-4e60-89e5-c130cf4f3c47",
+      "quantity": 1
+    }
+  ],
+  "shipping_address": "wall street , stokes, UK",
+  "payment_method": "COD"
+}
+[2025-11-29T07:04:11.237Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "327ced29-c4a5-4c19-a458-e1713bbbb503",
+      "quantity": 27
+    }
+  ],
+  "shipping_address": "wall street , stokes, UK",
+  "payment_method": "COD"
+}
+[2025-11-29T07:04:11.281Z] Error creating order: Insufficient stock for product: Tennis Racket
+Stack: Error: Insufficient stock for product: Tennis Racket
+    at C:\Users\yugan\.gemini\antigravity\scratch\sql_ecommerce_project\backend\src\services\orderService.ts:72:23
+    at async Proxy._transactionWithCallback (C:\Users\yugan\.gemini\antigravity\scratch\sql_ecommerce_project\backend\node_modules\.pnpm\@prisma+client@5.22.0_prisma@5.22.0\node_modules\@prisma\client\runtime\library.js:130:8000)
+    at async Object.createOrder (C:\Users\yugan\.gemini\antigravity\scratch\sql_ecommerce_project\backend\src\services\orderService.ts:53:12)
+    at async createOrder (C:\Users\yugan\.gemini\antigravity\scratch\sql_ecommerce_project\backend\src\controllers\orderController.ts:61:24)
+[2025-11-29T07:04:14.862Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "327ced29-c4a5-4c19-a458-e1713bbbb503",
+      "quantity": 27
+    }
+  ],
+  "shipping_address": "wall street , stokes, UK",
+  "payment_method": "COD"
+}
+[2025-11-29T07:04:14.874Z] Error creating order: Insufficient stock for product: Tennis Racket
+Stack: Error: Insufficient stock for product: Tennis Racket
+    at C:\Users\yugan\.gemini\antigravity\scratch\sql_ecommerce_project\backend\src\services\orderService.ts:72:23
+    at async Proxy._transactionWithCallback (C:\Users\yugan\.gemini\antigravity\scratch\sql_ecommerce_project\backend\node_modules\.pnpm\@prisma+client@5.22.0_prisma@5.22.0\node_modules\@prisma\client\runtime\library.js:130:8000)
+    at async Object.createOrder (C:\Users\yugan\.gemini\antigravity\scratch\sql_ecommerce_project\backend\src\services\orderService.ts:53:12)
+    at async createOrder (C:\Users\yugan\.gemini\antigravity\scratch\sql_ecommerce_project\backend\src\controllers\orderController.ts:61:24)
+[2025-11-29T07:04:52.429Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "327ced29-c4a5-4c19-a458-e1713bbbb503",
+      "quantity": 12
+    }
+  ],
+  "shipping_address": "wall street , stokes, UK",
+  "payment_method": "COD"
+}
+[2025-11-30T14:52:02.576Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "3476f7d3-3015-4005-add4-4c64efc60d01",
+      "quantity": 1
+    },
+    {
+      "product_id": "a92121b0-996f-4e12-9895-44154db54e41",
+      "quantity": 1
+    }
+  ],
+  "shipping_address": "wall street , stokes, UK",
+  "payment_method": "COD"
+}
+[2025-12-16T11:56:51.627Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "8c8b74ab-3209-44e8-9dba-50513ac89b29",
+      "quantity": 1
+    },
+    {
+      "product_id": "8886996e-7520-41dd-bd03-311d7ae8c920",
+      "quantity": 1
+    },
+    {
+      "product_id": "f7e5a197-da61-4ff5-bef4-6c1ea8483175",
+      "quantity": 1
+    },
+    {
+      "product_id": "fc6d00cb-787b-42ee-9993-86c6dff1b230",
+      "quantity": 1
+    },
+    {
+      "product_id": "e50b44c7-11ed-43a3-bdd2-f0ba7ecf7707",
+      "quantity": 1
+    }
+  ],
+  "shipping_address": "ellum street, texas, us",
+  "payment_method": "COD"
+}
+[2025-12-18T12:07:06.294Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "a971ec10-3bce-4ed8-ac41-d420c26c4371",
+      "quantity": 1
+    }
+  ],
+  "shipping_address": "wall street , stokes, UK",
+  "payment_method": "COD"
+}
+[2025-12-18T13:35:02.442Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "bbbd68dc-3e8f-49b4-a5df-4de0d3fda87f",
+      "quantity": 1
+    }
+  ],
+  "shipping_address": "wall street , stokes, UK",
+  "payment_method": "COD"
+}
+[2025-12-19T17:12:48.710Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "96c3f598-8a59-423a-a247-04c90ca9f99a",
+      "quantity": 1
+    },
+    {
+      "product_id": "b336bbdb-38b8-42e9-998a-4639abae25ee",
+      "quantity": 1
+    },
+    {
+      "product_id": "80745b3a-4c5e-4e11-9256-ef536cacbd50",
+      "quantity": 1
+    },
+    {
+      "product_id": "6b2eaa44-154d-4b67-a4e1-68de8486b316",
+      "quantity": 1
+    },
+    {
+      "product_id": "0f6e459b-42e7-4631-a89f-b1039492f59f",
+      "quantity": 1
+    }
+  ],
+  "shipping_address": "789 Log St, texas, us",
+  "payment_method": "COD"
+}
+[2025-12-22T16:28:33.853Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "fbbca667-2b06-4076-81af-5da949277ac0",
+      "quantity": 1
+    }
+  ],
+  "shipping_address": "789 Log St, texas, us",
+  "payment_method": "GPAY"
+}
+[2025-12-22T16:40:09.714Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "81ad94dd-0fe4-42df-85fb-3efb3b029962",
+      "quantity": 1
+    },
+    {
+      "product_id": "2a084bf4-343f-4db4-8723-01836acb551f",
+      "quantity": 1
+    }
+  ],
+  "shipping_address": "789 Log St, texas, us",
+  "payment_method": "GPAY"
+}
+[2025-12-23T10:30:48.068Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "96c3f598-8a59-423a-a247-04c90ca9f99a",
+      "quantity": 1
+    },
+    {
+      "product_id": "fbbca667-2b06-4076-81af-5da949277ac0",
+      "quantity": 1
+    },
+    {
+      "product_id": "ea2c880f-6d20-4148-a122-bdeb4bf9d9b5",
+      "quantity": 1
+    }
+  ],
+  "shipping_address": "wall street , london, UK",
+  "payment_method": "GPAY"
+}

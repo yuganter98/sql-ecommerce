@@ -1,0 +1,153 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model categories {
+  category_id      String       @id @default(uuid()) @db.Uuid
+  name             String       @db.VarChar(100)
+  description      String?
+  parent_id        String?      @db.Uuid
+  created_at       DateTime?    @default(now()) @db.Timestamptz(6)
+  categories       categories?  @relation("categoriesTocategories", fields: [parent_id], references: [category_id], onDelete: NoAction, onUpdate: NoAction)
+  other_categories categories[] @relation("categoriesTocategories")
+  products         products[]
+  has_sizes        Boolean      @default(false)
+}
+
+model inventory_logs {
+  log_id        String    @id @default(uuid()) @db.Uuid
+  product_id    String?   @db.Uuid
+  change_amount Int
+  reason        String?   @db.VarChar(255)
+  created_at    DateTime? @default(now()) @db.Timestamptz(6)
+  products      products? @relation(fields: [product_id], references: [product_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model order_items {
+  order_item_id String    @id @default(uuid()) @db.Uuid
+  order_id      String?   @db.Uuid
+  product_id    String?   @db.Uuid
+  quantity      Int
+  unit_price    Decimal   @db.Decimal(10, 2)
+  subtotal      Decimal   @db.Decimal(12, 2)
+  orders        orders?   @relation(fields: [order_id], references: [order_id], onDelete: Cascade, onUpdate: NoAction)
+  products      products? @relation(fields: [product_id], references: [product_id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([order_id, product_id], map: "idx_order_items_composite")
+  @@index([order_id], map: "idx_order_items_order")
+}
+
+model orders {
+  order_id         String        @id @default(uuid()) @db.Uuid
+  user_id          String?       @db.Uuid
+  order_date       DateTime?     @default(now()) @db.Timestamptz(6)
+  status           String        @default("PENDING") @db.VarChar(50)
+  total_amount     Decimal       @default(0.00) @db.Decimal(12, 2)
+  shipping_address String
+  payment_method   String        @default("COD") @db.VarChar(50)
+  updated_at       DateTime?     @default(now()) @db.Timestamptz(6)
+  order_items      order_items[]
+  users            users?        @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction)
+  payments         payments[]
+
+  @@index([order_date], map: "idx_orders_date")
+  @@index([user_id], map: "idx_orders_user")
+}
+
+model payments {
+  payment_id     String    @id @default(uuid()) @db.Uuid
+  order_id       String?   @db.Uuid
+  payment_date   DateTime? @default(now()) @db.Timestamptz(6)
+  amount         Decimal   @db.Decimal(12, 2)
+  payment_method String    @db.VarChar(50)
+  status         String    @default("COMPLETED") @db.VarChar(50)
+  orders         orders?   @relation(fields: [order_id], references: [order_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model products {
+  product_id     String           @id @default(uuid()) @db.Uuid
+  category_id    String?          @db.Uuid
+  name           String           @db.VarChar(255)
+  description    String?
+  price          Decimal          @db.Decimal(10, 2)
+  stock_quantity Int              @default(0)
+  sku            String           @unique @db.VarChar(50)
+  image_url      String?
+  is_active      Boolean?         @default(true)
+  created_at     DateTime?        @default(now()) @db.Timestamptz(6)
+  updated_at     DateTime?        @default(now()) @db.Timestamptz(6)
+  inventory_logs inventory_logs[]
+  order_items    order_items[]
+  product_images product_images[]
+  categories     categories?      @relation(fields: [category_id], references: [category_id], onDelete: NoAction, onUpdate: NoAction)
+  reviews        reviews[]
+
+  @@index([category_id], map: "idx_products_category")
+  @@index([name], map: "idx_products_name")
+}
+
+model product_images {
+  image_id   String    @id @default(uuid()) @db.Uuid
+  product_id String?   @db.Uuid
+  image_url  String
+  display_order Int    @default(0)
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  products   products? @relation(fields: [product_id], references: [product_id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([product_id], map: "idx_product_images_product")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model reviews {
+  review_id  String    @id @default(uuid()) @db.Uuid
+  product_id String?   @db.Uuid
+  user_id    String?   @db.Uuid
+  rating     Int
+  comment    String?
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  products   products? @relation(fields: [product_id], references: [product_id], onDelete: NoAction, onUpdate: NoAction)
+  users      users?    @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([product_id], map: "idx_reviews_product")
+}
+
+model users {
+  user_id       String    @id @default(uuid()) @db.Uuid
+  first_name    String    @db.VarChar(100)
+  last_name     String    @db.VarChar(100)
+  email         String    @unique @db.VarChar(255)
+  password_hash String    @db.VarChar(255)
+  role          String    @default("user") @db.VarChar(20)
+  phone_number  String?   @db.VarChar(20)
+  address       String?
+  city          String?   @db.VarChar(100)
+  country       String?   @db.VarChar(100)
+  created_at    DateTime? @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime? @default(now()) @db.Timestamptz(6)
+  orders        orders[]
+  reviews       reviews[]
+  user_addresses user_addresses[]
+  reset_password_token   String?   @db.VarChar(255)
+  reset_password_expires DateTime? @db.Timestamptz(6)
+}
+
+model user_addresses {
+  address_id   String    @id @default(uuid()) @db.Uuid
+  user_id      String?   @db.Uuid
+  address_line String
+  city         String    @db.VarChar(100)
+  country      String    @db.VarChar(100)
+  is_default   Boolean   @default(false)
+  created_at   DateTime? @default(now()) @db.Timestamptz(6)
+  users        users?    @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([user_id], map: "idx_user_addresses_user")
+}
+
