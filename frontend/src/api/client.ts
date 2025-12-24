@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useAuthStore } from '../store/authStore';
 
-export const API_URL = '/api'; // Use relative path for proxy to work
+export const API_URL = import.meta.env.VITE_API_URL || '/api'; // Use env var for prod, fallback for dev proxy
 
 const client = axios.create({
     baseURL: API_URL,
