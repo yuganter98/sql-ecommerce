@@ -52,7 +52,7 @@ export const register = async (req: Request, res: Response) => {
             .cookie('jwt', token, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === 'production',
-                sameSite: 'lax', // Use 'lax' for local dev, 'strict' or 'none' (with secure) for prod
+                sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Must be 'none' for cross-site (Vercel -> Render)
                 maxAge: 3600000 // 1 hour
             })
             .json({
@@ -110,7 +110,7 @@ export const login = async (req: Request, res: Response) => {
             .cookie('jwt', token, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === 'production',
-                sameSite: 'lax',
+                sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
                 maxAge: 3600000
             })
             .json({
@@ -152,7 +152,7 @@ export const googleCallback = (req: Request, res: Response) => {
         res.cookie('jwt', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax',
+            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
             maxAge: 3600000
         });
 
@@ -261,7 +261,7 @@ export const logout = (req: Request, res: Response) => {
     res.clearCookie('jwt', {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax'
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
     });
     res.status(200).json({ message: 'Logged out successfully' });
 };
