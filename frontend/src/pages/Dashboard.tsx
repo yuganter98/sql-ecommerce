@@ -3,7 +3,7 @@ import { useAuthStore } from '../store/authStore';
 import Button from '../components/ui/Button';
 import { User, MapPin, Phone, Mail, Save, Loader2 } from 'lucide-react';
 import client from '../api/client';
-import axios from 'axios';
+
 
 const Dashboard = () => {
     const { user, updateUser } = useAuthStore();

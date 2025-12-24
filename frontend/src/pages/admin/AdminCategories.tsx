@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Plus, Trash2, Loader, AlertTriangle } from 'lucide-react';
+import { Plus, Trash2, AlertTriangle } from 'lucide-react';
 import client from '../../api/client';
 import Button from '../../components/ui/Button';
 import { motion, AnimatePresence } from 'framer-motion';

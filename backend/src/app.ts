@@ -36,6 +36,10 @@ import addressRoutes from './routes/addressRoutes';
 app.use('/api/addresses', addressRoutes);
 
 // Health Check
+app.get('/', (req, res) => {
+    res.status(200).send('API is running 🚀. Go to /health to check status.');
+});
+
 app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
 });

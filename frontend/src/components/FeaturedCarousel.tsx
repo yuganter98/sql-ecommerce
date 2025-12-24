@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion } from 'framer-motion';
+
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import ProductCard from './ProductCard';
 
