@@ -47,8 +47,9 @@ const Navbar = () => {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <Link to="/" className="text-2xl font-bold tracking-tighter font-heading text-primary">
-                        LUXE<span className="text-gray-400">.</span>
+                    <Link to="/" className="flex items-center gap-3 text-2xl font-bold tracking-tighter font-heading text-primary">
+                        <img src="/logo.svg" alt="Luxe Logo" className="w-10 h-10 object-contain" />
+                        <span>LUXE<span className="text-gray-400">.</span></span>
                     </Link>
 
                     {/* Desktop Navigation */}
