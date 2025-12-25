@@ -45,7 +45,7 @@ const Cart = () => {
                                         animate={{ opacity: 1, height: 'auto' }}
                                         exit={{ opacity: 0, height: 0 }}
                                         transition={{ duration: 0.3 }}
-                                        className="p-6 flex items-center"
+                                        className="p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center"
                                     >
                                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl border border-gray-200">
                                             {item.image_url ? (
@@ -61,7 +61,7 @@ const Cart = () => {
                                             )}
                                         </div>
 
-                                        <div className="ml-6 flex-1 flex flex-col">
+                                        <div className="mt-4 sm:mt-0 sm:ml-6 flex-1 flex flex-col w-full">
                                             <div>
                                                 <div className="flex justify-between text-base font-medium text-gray-900">
                                                     <h3>
@@ -71,7 +71,7 @@ const Cart = () => {
                                                     </h3>
                                                     <p className="ml-4 font-bold">${(Number(item.price) * item.quantity).toFixed(2)}</p>
                                                 </div>
-                                                <p className="mt-1 text-sm text-gray-500">{item.categories?.name || 'Uncategorized'}</p>
+                                                <p className="mt-1 text-sm text-gray-500">{item.category_name || item.categories?.name || 'Uncategorized'}</p>
                                             </div>
                                             <div className="flex-1 flex items-end justify-between text-sm mt-4">
                                                 <div className="flex items-center border border-gray-200 rounded-full">

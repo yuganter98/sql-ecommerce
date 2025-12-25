@@ -130,6 +130,7 @@ const ProductDetail = () => {
             description: product.description,
             stock_quantity: 100,
             category_id: product.category_id,
+            category_name: product.category, // Pass the category name explicitly
             created_at: new Date().toISOString()
         }, quantity);
     };
@@ -290,17 +291,17 @@ const ProductDetail = () => {
 
                             {/* Add to Cart Group */}
                             <div className="pt-4 flex flex-col sm:flex-row gap-4">
-                                <div className="flex items-center bg-white/5 border border-white/10 rounded-xl">
+                                <div className="flex items-center justify-between w-full sm:w-auto bg-white/5 border border-white/10 rounded-xl">
                                     <button
                                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                                        className="w-12 h-14 flex items-center justify-center text-white/60 hover:text-white transition-colors"
+                                        className="w-10 sm:w-12 h-12 sm:h-14 flex items-center justify-center text-white/60 hover:text-white transition-colors"
                                     >
                                         <Minus className="w-4 h-4" />
                                     </button>
                                     <span className="w-8 text-center font-mono text-lg">{quantity}</span>
                                     <button
                                         onClick={() => setQuantity(quantity + 1)}
-                                        className="w-12 h-14 flex items-center justify-center text-white/60 hover:text-white transition-colors"
+                                        className="w-10 sm:w-12 h-12 sm:h-14 flex items-center justify-center text-white/60 hover:text-white transition-colors"
                                     >
                                         <Plus className="w-4 h-4" />
                                     </button>

@@ -156,7 +156,7 @@ const Login = () => {
                                 theme="filled_black"
                                 text="continue_with"
                                 shape="rectangular"
-                                width="350px" // Setting a fixed reasonable max-width or keeping 100% via CSS if possible, but 100% prop works too
+                                width="100%"
                                 onSuccess={async (credentialResponse) => {
                                     try {
                                         const response = await client.post('/auth/google', {

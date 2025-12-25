@@ -374,3 +374,17 @@ Stack: Error: Insufficient stock for product: Tennis Racket
   "shipping_address": "wall street , london, UK",
   "payment_method": "GPAY"
 }
+[2025-12-25T09:51:52.766Z] createOrder body: {
+  "items": [
+    {
+      "product_id": "ded22946-7311-4491-98d8-9a36f52d3854",
+      "quantity": 2
+    },
+    {
+      "product_id": "44666d94-04cd-4928-a0fc-331529050ef3",
+      "quantity": 1
+    }
+  ],
+  "shipping_address": "wall street , london, UK",
+  "payment_method": "GPAY"
+}
