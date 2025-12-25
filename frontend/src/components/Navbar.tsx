@@ -45,27 +45,30 @@ const Navbar = () => {
                 }`}
         >
             <div className="container mx-auto px-4 md:px-6">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-4">
                     {/* Logo */}
-                    <Link to="/" className="flex items-center gap-3 text-2xl font-bold tracking-tighter font-heading text-primary">
+                    <Link to="/" className="flex-shrink-0 flex items-center gap-3 text-2xl font-bold tracking-tighter font-heading text-primary">
                         <img src="/logo.svg" alt="Luxe Logo" className="w-10 h-10 object-contain" />
-                        <span>LUXE<span className="text-gray-400">.</span></span>
+                        <span className="hidden xl:inline">LUXE<span className="text-gray-400">.</span></span>
+                        <span className="xl:hidden">L<span className="text-gray-400">.</span></span>
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center space-x-8">
+                    <nav className="hidden md:flex items-center space-x-4 lg:space-x-8">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 to={link.path}
-                                className="relative group text-sm font-medium transition-colors hover:text-primary text-gray-600"
+                                className="relative group text-sm font-medium transition-colors hover:text-primary text-gray-600 whitespace-nowrap"
                             >
                                 {link.name}
                                 <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ease-out ${location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                             </Link>
                         ))}
-                        <Link to="/personal-shopper" className="relative group text-sm font-medium transition-colors hover:text-primary text-gray-600 flex items-center gap-1">
-                            <Sparkles className="w-4 h-4 text-primary" /> AI Shopper
+                        <Link to="/personal-shopper" className="relative group text-sm font-medium transition-colors hover:text-primary text-gray-600 flex items-center gap-1 whitespace-nowrap">
+                            <Sparkles className="w-4 h-4 text-primary" />
+                            <span className="hidden lg:inline">AI Shopper</span>
+                            <span className="lg:hidden">AI</span>
                         </Link>
                     </nav>
 
