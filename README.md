@@ -1,3 +1,4 @@
+Here is the link of live site - https://sql-ecommerce-zdgc.vercel.app/
 # E-commerce Sales Analytics Database
 
 An expert-level SQL project demonstrating advanced database design, optimization, and analytics.
