@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
+import { env } from '../config/env';
 
 export interface AuthRequest extends Request {
     user?: any;
@@ -9,7 +10,7 @@ export const authenticateJWT = (req: AuthRequest, res: Response, next: NextFunct
     const token = req.cookies.jwt;
 
     if (token) {
-        jwt.verify(token, process.env.JWT_SECRET || 'secret', (err: any, user: any) => {
+        jwt.verify(token, env.jwtSecret, (err: any, user: any) => {
             if (err) {
                 console.error('JWT Verification Error:', err.message);
                 return res.sendStatus(403);

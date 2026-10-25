@@ -147,10 +147,16 @@ router.get('/orders', async (req, res) => {
 });
 
 // Update Order Status
+const ALLOWED_ORDER_STATUSES = ['PENDING', 'PROCESSING', 'SHIPPED', 'DELIVERED', 'CANCELLED'];
 router.put('/orders/:id/status', async (req, res) => {
     try {
         const { id } = req.params;
         const { status } = req.body;
+
+        if (!ALLOWED_ORDER_STATUSES.includes(status)) {
+            return res.status(400).json({ message: `Status must be one of: ${ALLOWED_ORDER_STATUSES.join(', ')}` });
+        }
+
         const order = await prisma.orders.update({
             where: { order_id: id },
             data: { status }
