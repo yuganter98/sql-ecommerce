@@ -21,12 +21,13 @@ const storage = multer.diskStorage({
     }
 });
 
-// File filter (optional but good for security)
+// File filter: allowlist specific image types rather than any "image/*".
+const ALLOWED_MIME_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
 const fileFilter = (req: any, file: Express.Multer.File, cb: multer.FileFilterCallback) => {
-    if (file.mimetype.startsWith('image/')) {
+    if (ALLOWED_MIME_TYPES.includes(file.mimetype)) {
         cb(null, true);
     } else {
-        cb(new Error('Not an image! Please upload an image.'));
+        cb(new Error('Unsupported file type. Allowed: JPEG, PNG, WebP, GIF.'));
     }
 };
 

@@ -1,11 +1,19 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
 async function main() {
-    const email = 'admin@example.com';
-    const password = 'admin123';
+    const email = process.env.ADMIN_EMAIL || 'admin@example.com';
+    const password = process.env.ADMIN_PASSWORD;
+
+    if (!password) {
+        console.error('Set ADMIN_PASSWORD (and optionally ADMIN_EMAIL) in the environment before running this script.');
+        process.exit(1);
+    }
 
     try {
         // Check if user exists

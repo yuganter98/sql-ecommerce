@@ -93,15 +93,19 @@ const Checkout = () => {
                     return;
                 }
 
-                // Create order on backend
+                // Create order on backend. The server prices the cart from the
+                // database, so we send items (not a client-controlled amount).
                 const result = await client.post('/payment/create-order', {
-                    amount: total,
+                    items: items.map(item => ({
+                        product_id: item.product_id,
+                        quantity: item.quantity
+                    })),
                 });
 
                 const { id: order_id, currency } = result.data;
 
                 const options = {
-                    key: 'rzp_test_placeholder', // Enter the Key ID generated from the Dashboard
+                    key: import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_test_placeholder', // Razorpay publishable key
                     amount: result.data.amount,
                     currency: currency,
                     name: "E-Commerce Store",
