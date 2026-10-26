@@ -15,6 +15,18 @@ if (apiKey) {
     });
 }
 
+// Model id is configurable so a provider retiring a model (as OpenRouter did
+// with gpt-3.5-turbo) is a one-line env change, not an outage. For OpenRouter
+// the id must be "provider/model" (e.g. "openai/gpt-4o-mini").
+const MODEL = process.env.OPENAI_MODEL || 'openai/gpt-4o-mini';
+
+// Log the provider's real status + message instead of swallowing it silently.
+const logAiError = (context: string, error: any) => {
+    const status = error?.status ?? error?.code;
+    const message = error?.error?.message ?? error?.message ?? String(error);
+    console.error(`${context} [status=${status}]:`, message);
+};
+
 const SYSTEM_PROMPT = `
 You are a helpful and polite customer support assistant for "Luxe", a premium e-commerce store.
 Your goal is to assist customers with their questions about products, orders, shipping, and policies.
@@ -46,12 +58,12 @@ export const generateResponse = async (message: string): Promise<string> => {
                 { role: "system", content: SYSTEM_PROMPT },
                 { role: "user", content: message },
             ],
-            model: "gpt-3.5-turbo",
+            model: MODEL,
         });
 
         return completion.choices[0].message.content || "I'm sorry, I couldn't generate a response.";
     } catch (error) {
-        console.error("OpenAI API Error:", error);
+        logAiError("OpenAI API Error", error);
         return "I'm having trouble connecting to my AI brain right now. Please try again later.";
     }
 };
@@ -69,12 +81,12 @@ export const generateProductDescription = async (name: string, category: string)
                 { role: "system", content: "You are a professional copywriter for a luxury e-commerce brand." },
                 { role: "user", content: prompt },
             ],
-            model: "gpt-3.5-turbo",
+            model: MODEL,
         });
 
         return completion.choices[0].message.content || "Could not generate description.";
     } catch (error) {
-        console.error("OpenAI API Error:", error);
+        logAiError("OpenAI API Error", error);
         return "Error generating description. Please try again.";
     }
 };
@@ -112,7 +124,7 @@ export const personalShopperChat = async (messages: any[]): Promise<{ response: 
                 { role: "system", content: SYSTEM_PROMPT_SHOPPER },
                 ...messages
             ],
-            model: "gpt-3.5-turbo",
+            model: MODEL,
         });
 
         const content = completion.choices[0].message.content || "I'm sorry, I couldn't understand that.";
@@ -133,7 +145,7 @@ export const personalShopperChat = async (messages: any[]): Promise<{ response: 
         return { response: content };
 
     } catch (error) {
-        console.error("Personal Shopper API Error:", error);
+        logAiError("Personal Shopper API Error", error);
         return { response: "I'm having trouble connecting to my AI brain right now." };
     }
 };
